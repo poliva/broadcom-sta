@@ -266,7 +266,7 @@ like this:
 
 TX POWER EXPLAINED
 ------------------
-'iwconfig eth1 txpower' & 'iwlist eth1 txpower' set and get the drivers 
+'iwconfig wlan0 txpower' & 'iwlist wlan0 txpower' set and get the drivers 
 user-requested transmit power level. This can go up to 32 dbm and allows
 the user to lower the tx power to levels below the regulatory limit.
 Internally, the actual tx power is always kept within regulatory limits
@@ -319,14 +319,14 @@ KNOWN ISSUES AND LIMITATIONS IN EXTERNAL COMPONENTS
 
 wpa_supplicant 0.6.3 + nl80211 + WEP - (Note: This would only affect you if 
 you are using wpa_supplicant directly from the command line and specify 
-nl80211 interface, e.g. "wpa_supplicant -Dnl80211 -ieth1 ..". If you are using
+nl80211 interface, e.g. "wpa_supplicant -Dnl80211 -iwlan0 ..". If you are using
 network manager GUI to connect it should work file.)
 wpa_supplicant 0.6.3 might have a bug that affect WEP connections created 
 through nl80211. Upgrade to wpa_supplicant to 0.7.3 would solve this problem.
 
 Ubuntu 10.10 kernel + nl80211 + WPA/WPA2 - (Note: This would only affect you if 
 you are using wpa_supplicant directly from the command line and specify 
-nl80211 interface, e.g. "wpa_supplicant -Dnl80211 -ieth1 ..". If you are using
+nl80211 interface, e.g. "wpa_supplicant -Dnl80211 -iwlan0 ..". If you are using
 network manager GUI to connect it should work file.)
 Some kernel versions of Ubuntu such as 2.6.35-22 (released with Ubuntu 
 10.10) may have problems that affect WPA/WPA2 connections created through 

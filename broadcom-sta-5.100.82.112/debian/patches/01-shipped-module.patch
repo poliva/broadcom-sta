@@ -1,0 +1,42 @@
+Index: broadcom-sta-5.100.82.112/amd64/Makefile
+===================================================================
+--- broadcom-sta-5.100.82.112.orig/amd64/Makefile	2011-12-14 08:05:35.000000000 +0400
++++ broadcom-sta-5.100.82.112/amd64/Makefile	2012-01-17 10:30:57.774481427 +0400
+@@ -120,13 +120,33 @@
+ EXTRA_CFLAGS       += -I$(src)/src/wl/sys -I$(src)/src/wl/phy
+ #EXTRA_CFLAGS       += -DBCMDBG_ASSERT
+ 
+-EXTRA_LDFLAGS      := $(src)/lib/wlc_hybrid.o_shipped
++ifeq ($(KVER),)
++	KVER = $(shell uname -r)
++endif
++
++KDIR     = /lib/modules/$(KVER)/build
++PWD      = $(shell pwd)
++
++KARCH := $(shell egrep 'CONFIG_X86_(32|64)=y' $(KDIR)/.config 2>/dev/null| cut -d= -f1)
++ifeq ($(KARCH),CONFIG_X86_32)
++    SHIPPED=wlc_hybrid.o_i386
++    $(info Kernel architecture is X86_32)
++else
++    ifeq ($(KARCH),CONFIG_X86_64)
++        SHIPPED=wlc_hybrid.o_amd64
++        $(info Kernel architecture is X86_64)
++    else # Error!
++        $(error Unsupported kernel architecture)
++    endif
++endif
++
++EXTRA_LDFLAGS      := $(src)/lib/$(SHIPPED)
+ 
+ all:
+-	KBUILD_NOPEDANTIC=1 make -C /lib/modules/`uname -r`/build M=`pwd`
++	KBUILD_NOPEDANTIC=1 make -C $(KDIR) M=$(PWD)
+ 
+ clean:
+-	KBUILD_NOPEDANTIC=1 make -C /lib/modules/`uname -r`/build M=`pwd` clean
++	KBUILD_NOPEDANTIC=1 make -C $(KDIR) M=$(PWD) clean
+ 
+ install:
+-	install -D -m 755 wl.ko /lib/modules/`uname -r`/kernel/drivers/net/wireless/wl.ko
++	install -D -m 755 wl.ko /lib/modules/$(KVER)/kernel/drivers/net/wireless/wl.ko

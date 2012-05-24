@@ -1,0 +1,29 @@
+Source: broadcom-sta
+Section: non-free/admin
+Priority: optional
+Maintainer: Cyril Lacoux <clacoux@easter-eggs.com>
+Build-Depends: debhelper (>= 8)
+Standards-Version: 3.9.2
+Homepage: http://www.broadcom.com/support/802.11/linux_sta.php
+
+Package: broadcom-sta-modules-_KVERS_
+Architecture: all
+Depends: linux-modules-_KVERS_ | linux-image-_KVERS_, broadcom-sta-common
+Provides: broadcom-sta-modules
+Recommends: wireless-tools
+Description: broadcom-sta modules for Linux (kernel _KVERS_)
+ Broadcom STA is a binary-only device driver to support the following IEEE
+ 802.11a/b/g/n wireless network cards: BCM4311-, BCM4312-, BCM4313-,
+ BCM4321-, BCM4322-, BCM43224-, BCM43225-, BCM43227-, and BCM43228-based
+ hardware.
+ .
+ This package contains the set of loadable kernel modules for the broadcom-sta
+ wireless network driver. The wireless-tools package is also required in order
+ to make use of these modules.
+ .
+ This package contains the compiled kernel modules for _KVERS_
+ .
+ If you have compiled your own kernel, you will most likely need to build your
+ own broadcom-sta-modules. The broadcom-sta-source package has been provided for
+ use with the Debian's module-assistant or kernel-package utilities to produce a
+ version of broadcom-sta-modules for your kernel.

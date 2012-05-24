@@ -1,0 +1,191 @@
+broadcom-sta (5.100.82.112-7) unstable; urgency=low
+
+  * Revert architecture to all (Closes: #659732, #659509, #664476)
+  * Bumped standards version to 3.9.3 (No changes)
+
+ -- Cyril Lacoux <clacoux@easter-eggs.com>  Tue, 17 Apr 2012 14:08:12 +0400
+
+broadcom-sta (5.100.82.112-6) unstable; urgency=low
+
+  * Added dkms support (Closes: #568034)
+  * Remove modass override symlink
+  * debian/control:
+    - Set architecture to amd64 i386
+    - Removed wireless-tools from Suggests since module recommends it
+    - Bumped debhelper version to 8
+  * debian/control.modules.in:
+    - Bumped standards version to 3.9.2 (No changes)
+    - Set architecture to amd64 i386
+    - Removed quilt from Depends and Build-Depends
+    - Bumped debhelper version to 8
+  * debian/rules:
+    - Moved module specific stuff to debian/rules.modules
+    - Removed quilt stuff since it's natively supported by format 3.0
+    - Rewrote most of file
+
+ -- Cyril Lacoux <clacoux@easter-eggs.com>  Sat, 28 Jan 2012 09:47:33 +0400
+
+broadcom-sta (5.100.82.112-5) unstable; urgency=low
+
+  * Re-add support for installation from sources (Closes: #655279).
+  * Added 06-3.2.0.patch to compile with 3.2 kernels (Closes: #656600, #657049).
+
+ -- Cyril Lacoux <clacoux@easter-eggs.com>  Fri, 20 Jan 2012 08:59:07 +0400
+
+broadcom-sta (5.100.82.112-4) unstable; urgency=low
+
+  * Enabled compilation for 64bits kernel on i386 architecture
+    (Closes: #651787):
+    - Provide one merged src tree with both amd64 and i386 shipped proprietary
+      modules.
+    - Patch Makefile to select correct shipped module depending on kernel
+      configuration.
+    - Removed all extra patches (from i386 tree).
+    - Removed SOURCEDIR = f(dpkg-architecture) from rules file.
+    - Updated series file as well.
+
+ -- Cyril Lacoux <clacoux@easter-eggs.com>  Wed, 14 Dec 2011 08:03:53 +0400
+
+broadcom-sta (5.100.82.112-3) unstable; urgency=low
+
+  * Added a note to NEWS.Debian to inform the user that the interface has been
+    renamed in 5.100.82.112-2 (Closes: #648396).
+
+ -- Cyril Lacoux <clacoux@easter-eggs.com>  Fri, 11 Nov 2011 15:09:34 +0400
+
+broadcom-sta (5.100.82.112-2) unstable; urgency=low
+
+  * Added 02-rename-to-wlan0.patch to rename device from eth%d to wlan%d.
+  * Added 04-2.6.39.patch to compile with 2.6.39.X kernels.
+  * Thanks to Carlos Alberto Lopez Perez <clopez@igalia.com> (Closes: #648169).
+
+ -- Cyril Lacoux <clacoux@easter-eggs.com>  Thu, 10 Nov 2011 08:50:03 +0400
+
+broadcom-sta (5.100.82.112-1) unstable; urgency=low
+
+  * New upstream release. 
+
+ -- Cyril Lacoux <clacoux@easter-eggs.com>  Wed, 26 Oct 2011 08:51:03 +0400
+
+broadcom-sta (5.100.82.111-1) unstable; urgency=low
+
+  * New upstream release.
+  * Refreshed changelog and license patches.
+  * Removed obsolete patch 03-linux-2.6.37.patch.
+  * Bumped standards version to 3.9.2 (No changes).
+
+ -- Cyril Lacoux <clacoux@easter-eggs.com>  Tue, 25 Oct 2011 08:21:13 +0400
+
+broadcom-sta (5.100.82.38-2) unstable; urgency=low
+
+  * Updated supported chipset details, thanks to Geoff Simmons
+    <gsimmons@gsimmons.org> (Closes: #620149). 
+  * Added brcmsmac to blacklist, thanks to Geoff Simmons for the tip
+    (Closes: #626283).
+
+ -- Cyril Lacoux <clacoux@easter-eggs.com>  Wed, 11 May 2011 07:24:54 +0400
+
+broadcom-sta (5.100.82.38-1) unstable; urgency=low
+
+  * New upstream release (Closes: #605715).
+  * Switch to dpkg-source 3.0 (quilt) format.
+  * Updated my e-mail.
+  * Rebuild initrd when broadcom-sta-common is configured (Closes: #591869). 
+  * Added brcm80211 driver to blacklist as requested by Ben Hutchings
+    (Closes: #597786, #601009, #611539).
+  * Added upstream changelog and README.txt files.
+  * Removed applyed upstream patch for 2.6.33 compatibility.
+  * Removed applyed upstream patch for 2.6.35 compatibility.
+  * Added patch to compile with 2.6.37.
+  * Added patch from Anisse Astier <anisse@astier.eu> to compile with minimal
+    kernel configuration (Closes: #612445).
+
+ -- Cyril Lacoux <clacoux@easter-eggs.com>  Thu, 10 Feb 2011 09:21:50 +0400
+
+broadcom-sta (5.60.48.36-3) unstable; urgency=low
+
+  * Added upstream patch to compile with 2.6.35 (Closes: #591549).
+  * Bumped standards version to 3.9.1 (No changes).
+
+ -- Cyril Lacoux (Yack) <clacoux@easter-eggs.com>  Thu, 05 Aug 2010 11:44:37 +0400
+
+broadcom-sta (5.60.48.36-2) unstable; urgency=low
+
+  * Added patch to compile with 2.6.33 (Closes: #572314, #572429). 
+  * Added patch from Michael Tuschik for cross-compilation. (Closes: #579839)
+
+ -- Cyril Lacoux (Yack) <clacoux@easter-eggs.com>  Mon, 24 May 2010 10:22:44 +0400
+
+broadcom-sta (5.60.48.36-1) unstable; urgency=low
+
+  * New upstream release (Closes: #571233).
+  * Removed applyed upstream patch for 2.6.32 compatibility.
+  * Refreshed 01-license.patch file.
+  * Bumped standards version to 3.8.4 (No changes).
+  * Added BCM4313 to the list of supported cards.
+
+ -- Cyril Lacoux (Yack) <clacoux@easter-eggs.com>  Wed, 24 Feb 2010 21:12:29 +0400
+
+broadcom-sta (5.10.91.9.3-3) unstable; urgency=low
+
+  * Blacklisting b43legacy, b43, b44 and ssb modules (Closes: #545388).
+  * Added a note to README.Debian (broadcom-sta-common) to explain why b44
+    module is blacklisted.
+
+ -- Cyril Lacoux (Yack) <clacoux@easter-eggs.com>  Thu, 14 Jan 2010 22:33:24 +0400
+
+broadcom-sta (5.10.91.9.3-2) unstable; urgency=low
+
+  * Added patch from Emilio Coppa <ercoppa@gmail.com> to compile with 2.6.32.
+  * Added a note to README.Debian to inform the user that he should now use
+    the free b43 driver (Closes: #542775).
+
+ -- Cyril Lacoux (Yack) <clacoux@easter-eggs.com>  Sat, 19 Dec 2009 11:48:47 +0400
+
+broadcom-sta (5.10.91.9.3-1) unstable; urgency=low
+
+  * New maintainer (Closes: #543888).
+  * New upstream release (Closes: #547373, #551364).
+  * Compile with 2.6.31.
+  * Removed applyed upstream patches.
+  * Refreshed 01-license.patch file.
+  * Fixed dh_installdeb called twice.
+  * Added README.source file referring to /usr/share/doc/quilt/README.source
+
+ -- Cyril Lacoux (Yack) <clacoux@easter-eggs.com>  Wed, 11 Nov 2009 14:12:55 +0400
+
+broadcom-sta (5.10.91.9-3) unstable; urgency=low
+
+  * Actually updating the maintainers field.
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 27 Aug 2009 10:53:07 +0200
+
+broadcom-sta (5.10.91.9-2) unstable; urgency=low
+
+  * Updating package to standards version 3.8.3.
+  * Removing vcs fields.
+  * Orphaning package.
+
+ -- Daniel Baumann <daniel@debian.org>  Thu, 27 Aug 2009 10:38:01 +0200
+
+broadcom-sta (5.10.91.9-1) unstable; urgency=low
+
+  * Merging upstream version 5.10.91.9.
+  * Using correct rfc-2822 date formats in changelog.
+  * Correcting broadcom-sta-common package description.
+  * Adding patch from Chris Nolan <chris@cenolan.com> to allow the
+    driver to associate with hidden SSID networks using Network Manager.
+  * Adding patch to export module license symbol.
+  * Adding updated 2.6.29 patch from Alexander Feldman <alex@llama.gs>.
+  * Adding patch from Victor Ashirov <victor.ashirov@gmail.com> to
+    compile with 2.6.30.
+  * Removing wl-iw.patch, not required anymore.
+  * Removing disabled patches.
+
+ -- Daniel Baumann <daniel@debian.org>  Tue, 19 May 2009 13:13:00 +0200
+
+broadcom-sta (5.10.79.10-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Daniel Baumann <daniel@debian.org>  Mon, 06 Apr 2009 00:08:00 +0200

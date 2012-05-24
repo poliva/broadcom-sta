@@ -1,0 +1,51 @@
+Source: broadcom-sta
+Section: non-free/admin
+Priority: optional
+Maintainer: Cyril Lacoux <clacoux@easter-eggs.com>
+Build-Depends: debhelper (>= 8), dkms
+Standards-Version: 3.9.3
+Homepage: http://www.broadcom.com/support/802.11/linux_sta.php
+
+Package: broadcom-sta-common
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: broadcom-sta-source, module-assistant
+Description: Common files for the Broadcom STA Wireless driver
+ Broadcom STA is a binary-only device driver to support the following IEEE
+ 802.11a/b/g/n wireless network cards: BCM4311-, BCM4312-, BCM4313-,
+ BCM4321-, BCM4322-, BCM43224-, BCM43225-, BCM43227-, and BCM43228-based
+ hardware.
+ .
+ This package contains the common files.
+
+Package: broadcom-sta-dkms
+Architecture: all
+Depends: ${misc:Depends}
+Recommends: wireless-tools
+Breaks: broadcom-sta-common, broadcom-sta-modules (<< 5.100.82.112-6~), broadcom-sta-source
+Replaces: broadcom-sta-common, broadcom-sta-modules (<< 5.100.82.112-6~), broadcom-sta-source
+Provides: broadcom-sta-modules
+Description: dkms source for the Broadcom STA Wireless driver
+ Broadcom STA is a binary-only device driver to support the following IEEE
+ 802.11a/b/g/n wireless network cards: BCM4311-, BCM4312-, BCM4313-,
+ BCM4321-, BCM4322-, BCM43224-, BCM43225-, BCM43227-, and BCM43228-based
+ hardware.
+ .
+ This package provides the source code for the wl kernel modules. The
+ wireless-tools package is also required in order to make use of these modules.
+ Kernel source or headers are required to compile these modules.
+
+Package: broadcom-sta-source
+Architecture: all
+Depends: ${misc:Depends}, debhelper (>= 8), bzip2, make
+Recommends: module-assistant
+Description: Source for the Broadcom STA Wireless driver
+ Broadcom STA is a binary-only device driver to support the following IEEE
+ 802.11a/b/g/n wireless network cards: BCM4311-, BCM4312-, BCM4313-,
+ BCM4321-, BCM4322-, BCM43224-, BCM43225-, BCM43227-, and BCM43228-based
+ hardware.
+ .
+ This package provides the source code for the wl kernel modules. The
+ wireless-tools package is also required in order to make use of these modules.
+ Kernel source or headers are required to compile these modules.
+

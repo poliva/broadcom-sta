@@ -185,6 +185,8 @@ static int wl_set_radio_block(void *data, bool blocked);
 static void wl_report_radio_state(wl_info_t *wl);
 #endif
 
+MODULE_LICENSE("MIXED/Proprietary");
+
 static struct pci_device_id wl_id_table[] = {
 	{ PCI_VENDOR_ID_BROADCOM, 0x4311, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 }, 
 	{ PCI_VENDOR_ID_BROADCOM, 0x4312, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 }, 
@@ -256,7 +258,7 @@ module_param(nompc, int, 0);
 #define quote_str(s) to_str(s)
 
 #ifndef BRCM_WLAN_IFNAME
-#define BRCM_WLAN_IFNAME eth%d
+#define BRCM_WLAN_IFNAME wlan%d
 #endif
 
 static char name[IFNAMSIZ] = quote_str(BRCM_WLAN_IFNAME);
@@ -385,7 +387,11 @@ static const struct net_device_ops wl_netdev_ops =
 #endif
 	.ndo_get_stats = wl_get_stats,
 	.ndo_set_mac_address = wl_set_mac_address,
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 2, 0)
+	.ndo_set_rx_mode = wl_set_multicast_list,
+#else
 	.ndo_set_multicast_list = wl_set_multicast_list,
+#endif
 	.ndo_do_ioctl = wl_ioctl
 };
 

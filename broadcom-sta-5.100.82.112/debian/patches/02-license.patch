@@ -1,0 +1,13 @@
+Index: broadcom-sta-5.100.82.112/amd64/src/wl/sys/wl_linux.c
+===================================================================
+--- broadcom-sta-5.100.82.112.orig/amd64/src/wl/sys/wl_linux.c	2011-10-26 08:57:53.888393528 +0400
++++ broadcom-sta-5.100.82.112/amd64/src/wl/sys/wl_linux.c	2011-10-26 08:58:19.052394148 +0400
+@@ -185,6 +185,8 @@
+ static void wl_report_radio_state(wl_info_t *wl);
+ #endif
+ 
++MODULE_LICENSE("MIXED/Proprietary");
++
+ static struct pci_device_id wl_id_table[] = {
+ 	{ PCI_VENDOR_ID_BROADCOM, 0x4311, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 }, 
+ 	{ PCI_VENDOR_ID_BROADCOM, 0x4312, PCI_ANY_ID, PCI_ANY_ID, 0, 0, 0 }, 

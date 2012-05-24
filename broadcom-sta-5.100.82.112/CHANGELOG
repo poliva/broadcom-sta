@@ -1,0 +1,64 @@
+WHAT'S NEW IN RELEASE 5.100.82.112
+----------------------------------
++ Fixed a kernel panic observed on some 64-bit systems
+
+WHAT'S NEW IN RELEASE 5.100.82.111
+----------------------------------
++ Added cfg80211 API support. The choice of API is done at compile time. If
+kernel version >= 2.6.32, cfg80211 is used, otherwise wireless extension
+is used. (End users should notice little difference.)
++ Supports Linux kernel 2.6.38
++ Fix for problem with rebooting while wireless disabled via airline switch.
++ Supports monitor mode
+
+WHAT'S NEW IN RELEASE 5.100.82.38
+---------------------------------
++ Support for bcm43227 and bcm43228
++ Fix for issue where iwconfig was sometime reporting rate incorrectly
++ Supports rfkill in kernels 2.6.31 to 2.6.36
++ Supports scan complete event (SIOCGIWSCAN)
++ Adds EAGAIN (busy signal) to query of scan results
+
+WHAT'S NEW IN RELEASE 5.100.57.15
+---------------------------------
++ Following fixes (issues introduced in 5.100.57.13)
+    Issue #87477 - 4313: DUT is not able to associate in WPA2-PSK TKIP/AES
+    Issue #87533 - NetworkManager: 4313: Unable to associate to APs with WPA2-PSK
+
+WHAT'S NEW IN RELEASE 5.100.57.13
+---------------------------------
++ 4313 PHY fixes to improve throughput stability at different ranges
++ Fix for interop issues with different APs
++ Fix for hangs seen during Fn-F2 sequence
+- Support for rfkill in kernels 2.6.31 to 2.6.36
+
+WHAT'S NEW IN RELEASE 5.60.246.6
+--------------------------------
++ Supports rfkill in kernels 2.6.31 to 2.6.36
++ Fix for compile error with multicast list in kernel 2.6.34
++ Fix for #76743 - Ubuntu9.04: Network manager displays n/w's with radio disabled
+
+WHAT'S NEW IN RELEASE 5.60.246.2
+--------------------------------
++ Supports up to linux kernel 2.6.36 (from 2.6.32)
++ Fix for #86668: [Canonical] Bug #611575/617369: System will hang if
+    you use the F2 hot key to enable/disable wireless quickly while
+    wireless is still in the process of re-association with AP
+
+WHAT'S NEW IN RELEASE 5.60.48.36
+--------------------------------
++ Supports up to linux kernel 2.6.32
++ Supports hidden networks
++ Supports rfkill in kernels < 2.6.31
++ Setting power level via 'iwconfig eth1 txpower X' now operational
++ Support for bcm4313
++ Additional channels in both 2.4 and 5 Ghz bands
++ Fixed issue with tkip group keys that caused this message to repeat often:
+    TKIP: RX tkey->key_idx=2 frame keyidx=1 priv=ffff8800cf80e840
++ Following fixes
+    Issue #72216 - Ubuntu 8.04: standby/resume with WPA2 and wpa_supplicant causes
+                     a continuous assoc/disassoc loop (issue in 2.6.24 kernel)
+    Issue #72324 - Ubuntu 8.04: cannot ping when Linux STA is IBSS creator with WEP
+    Issue #76739 - Ubuntu 9.04: unable to connect to hidden network after stdby/resume
+    Issue #80392 - S4 resume hang with SuSE SLED 11 and 43225
+    Issue #80792 - LSTA is not able to associate to AP with transition from AES to TKIP encryption

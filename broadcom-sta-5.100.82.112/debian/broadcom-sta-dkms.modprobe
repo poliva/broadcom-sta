@@ -1,0 +1,7 @@
+# wl module from Broadcom conflicts with the following modules:
+blacklist b44
+blacklist b43legacy
+blacklist b43
+blacklist brcm80211
+blacklist brcmsmac
+blacklist ssb

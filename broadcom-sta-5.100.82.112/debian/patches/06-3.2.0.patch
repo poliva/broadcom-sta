@@ -1,0 +1,20 @@
+Description: Enable compilation with 3.2 kernels
+Author: Cyril Lacoux <clacoux@easter-eggs.com>
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=656600
+Bug-Debian: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=657049
+Last-Update: 2012-01-20
+
+--- a/amd64/src/wl/sys/wl_linux.c
++++ b/amd64/src/wl/sys/wl_linux.c
+@@ -387,7 +387,11 @@
+ #endif
+ 	.ndo_get_stats = wl_get_stats,
+ 	.ndo_set_mac_address = wl_set_mac_address,
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 2, 0)
++	.ndo_set_rx_mode = wl_set_multicast_list,
++#else
+ 	.ndo_set_multicast_list = wl_set_multicast_list,
++#endif
+ 	.ndo_do_ioctl = wl_ioctl
+ };
+ 

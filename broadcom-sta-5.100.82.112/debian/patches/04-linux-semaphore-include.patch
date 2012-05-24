@@ -1,0 +1,12 @@
+Index: broadcom-sta-5.100.82.112/amd64/src/wl/sys/wl_iw.h
+===================================================================
+--- broadcom-sta-5.100.82.112.orig/amd64/src/wl/sys/wl_iw.h	2011-10-26 08:57:52.912393546 +0400
++++ broadcom-sta-5.100.82.112/amd64/src/wl/sys/wl_iw.h	2011-10-26 08:58:24.712394307 +0400
+@@ -16,6 +16,7 @@
+ #define _wl_iw_h_
+ 
+ #include <linux/wireless.h>
++#include <linux/semaphore.h>
+ 
+ #include <typedefs.h>
+ #include <proto/ethernet.h>

@@ -16,6 +16,7 @@
 #define _wl_iw_h_
 
 #include <linux/wireless.h>
+#include <linux/semaphore.h>
 
 #include <typedefs.h>
 #include <proto/ethernet.h>
