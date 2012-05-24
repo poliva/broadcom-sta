@@ -1,0 +1,14 @@
+Description: Add cfg80211 API support
+Author: Pau Oliva <pau@eslack.org>
+Last-Update: 2012-05-22
+
+--- broadcom-sta-5.100.82.112.orig/amd64/Makefile
++++ broadcom-sta-5.100.82.112/amd64/Makefile
+@@ -119,6 +119,7 @@ wl-objs            += src/wl/sys/wl_cfg8
+ EXTRA_CFLAGS       += -I$(src)/src/include
+ EXTRA_CFLAGS       += -I$(src)/src/wl/sys -I$(src)/src/wl/phy
+ #EXTRA_CFLAGS       += -DBCMDBG_ASSERT
++EXTRA_CFLAGS       += -DUSE_CFG80211
+ 
+ ifeq ($(KVER),)
+ 	KVER = $(shell uname -r)

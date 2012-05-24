@@ -5,3 +5,4 @@
 04-linux-semaphore-include.patch
 05-2.6.39.patch
 06-3.2.0.patch
+07-add-cfg80211-api.patch

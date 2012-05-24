@@ -119,6 +119,7 @@ wl-objs            += src/wl/sys/wl_cfg80211.o
 EXTRA_CFLAGS       += -I$(src)/src/include
 EXTRA_CFLAGS       += -I$(src)/src/wl/sys -I$(src)/src/wl/phy
 #EXTRA_CFLAGS       += -DBCMDBG_ASSERT
+EXTRA_CFLAGS       += -DUSE_CFG80211
 
 ifeq ($(KVER),)
 	KVER = $(shell uname -r)

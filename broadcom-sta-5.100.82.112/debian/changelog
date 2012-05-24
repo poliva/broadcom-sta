@@ -1,3 +1,10 @@
+broadcom-sta (5.100.82.112-7ubuntu1) precise; urgency=low
+
+  * Make sure the new linux CFG80211 wireless configuration API is used
+    instead of the older Wireless Extensions (WEXT)
+
+ -- Pau Oliva Fora (pof) <pau@eslack.org>  Wed, 23 May 2012 04:04:44 +0200
+
 broadcom-sta (5.100.82.112-7) unstable; urgency=low
 
   * Revert architecture to all (Closes: #659732, #659509, #664476)
