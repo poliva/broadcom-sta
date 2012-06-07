@@ -1,3 +1,9 @@
+broadcom-sta (5.100.82.112-7ubuntu2) precise; urgency=low
+
+  * add postinstall script to blacklist conflicting modules
+
+ -- Pau Oliva Fora (pof) <pau@eslack.org>  Thu, 07 Jun 2012 18:51:35 +0200
+
 broadcom-sta (5.100.82.112-7ubuntu1) precise; urgency=low
 
   * Make sure the new linux CFG80211 wireless configuration API is used
