@@ -1,3 +1,9 @@
+broadcom-sta (5.100.82.112-7ubuntu4) precise; urgency=low
+
+  * remove postinst script for dkms package 
+
+ -- Pau Oliva Fora (pof) <pau@eslack.org>  Fri, 08 Jun 2012 18:36:30 +0200
+
 broadcom-sta (5.100.82.112-7ubuntu3) precise; urgency=low
 
   * better blacklist of conflicting modules
